@@ -17,3 +17,8 @@ export interface Props {
 export interface TextNode {
     text: string
 };
+
+export interface Counters {
+    _counter?: number;
+    _counter1?: number;
+}
