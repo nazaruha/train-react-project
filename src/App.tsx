@@ -13,6 +13,7 @@ import DefaultHomePage from './containers/default/defaultHomePage';
 import SecondUseEffectMistake from './containers/pages/TutorialUseEffect/useEffectMistakes/mistake-2';
 import ThirdUseEffectMistake from './containers/pages/TutorialUseEffect/useEffectMistakes/mistake-3';
 import Posts from './containers/pages/TutorialUseEffect/useEffectMistakes/mistake-3/Posts/posts';
+import AxiosTrain from './containers/pages/AXIOS TRAIN';
 
 function App() {
   // props
@@ -31,17 +32,22 @@ function App() {
       <Routes>
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<DefaultHomePage />} />
+          {/* useState ... */}
           <Route path="text-field" element={<TextField text='helloText' obj={{ f1: '' }} person={{ firstName: 'Nazarii', lastName: 'Fedun' }} />} />
           <Route path="tutorial-counter" element={<TutorialCounter>{(count, setCount) => (<div>{count}
             <button className="btn btn-primary" onClick={() => setCount(count + 1)}>+</button>
           </div>)}</TutorialCounter>} />
           <Route path="my-counter" element={<MyCounter />} />
+          {/* useRef */}
           <Route path="tutorial-useRef" element={<TutorialUseRef />} />
+          {/* useEffect */}
           <Route path="tutorial-useEffect" element={<TutorialUseEffect />} />
           <Route path="tutorial-useEffect/:first-useEffect-mistake-DependencyMistake" element={<FirstUseEffectMistake />} />
           <Route path="tutorial-useEffect/:second-useEffect-mistake-IncorrectUpdateInUseEffect" element={<SecondUseEffectMistake />} />
           <Route path="tutorial-useEffect/:third-useEffect-mistake-ApiRequestsWithUseEffect" element={<ThirdUseEffectMistake />} />
           <Route path="tutorial-useEffect/:third-useEffect-mistake-ApiRequestsWithUseEffect/:posts" element={<Posts />} />
+          {/* AXIOS */}
+          <Route path="axios-train" element={<AxiosTrain />} />
         </Route>
         <Route path="*" element={<DefaultNotFound />} />
       </Routes>
