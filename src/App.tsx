@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import TextField from './TextField';
-import { Counters } from './types';
+import TextField from './containers/pages/TextField';
+import { Counters } from './containers/pages/types';
 import DefaultLayout from './containers/default/defaultLayout';
-import TutorialCounter from './TutorialCounter';
-import MyCounter from './MyCounter';
+import TutorialCounter from './containers/pages/TutorialCounter';
+import MyCounter from './containers/pages/MyCounter';
+import TutorialUseRef from './containers/pages/TutorialUseRef';
+import TutorialUseEffect from './containers/pages/TutorialUseEffect';
+import FirstUseEffectMistake from './containers/pages/TutorialUseEffect/useEffectMistakes/mistake-1';
+import DefaultNotFound from './containers/default/defaultNotFound';
+import DefaultHomePage from './containers/default/defaultHomePage';
+import SecondUseEffectMistake from './containers/pages/TutorialUseEffect/useEffectMistakes/mistake-2';
+import ThirdUseEffectMistake from './containers/pages/TutorialUseEffect/useEffectMistakes/mistake-3';
+import Posts from './containers/pages/TutorialUseEffect/useEffectMistakes/mistake-3/Posts/posts';
 
 function App() {
   // props
@@ -22,12 +30,20 @@ function App() {
       </Counter> */}
       <Routes>
         <Route path="/" element={<DefaultLayout />}>
+          <Route index element={<DefaultHomePage />} />
           <Route path="text-field" element={<TextField text='helloText' obj={{ f1: '' }} person={{ firstName: 'Nazarii', lastName: 'Fedun' }} />} />
           <Route path="tutorial-counter" element={<TutorialCounter>{(count, setCount) => (<div>{count}
             <button className="btn btn-primary" onClick={() => setCount(count + 1)}>+</button>
           </div>)}</TutorialCounter>} />
           <Route path="my-counter" element={<MyCounter />} />
+          <Route path="tutorial-useRef" element={<TutorialUseRef />} />
+          <Route path="tutorial-useEffect" element={<TutorialUseEffect />} />
+          <Route path="tutorial-useEffect/:first-useEffect-mistake-DependencyMistake" element={<FirstUseEffectMistake />} />
+          <Route path="tutorial-useEffect/:second-useEffect-mistake-IncorrectUpdateInUseEffect" element={<SecondUseEffectMistake />} />
+          <Route path="tutorial-useEffect/:third-useEffect-mistake-ApiRequestsWithUseEffect" element={<ThirdUseEffectMistake />} />
+          <Route path="tutorial-useEffect/:third-useEffect-mistake-ApiRequestsWithUseEffect/:posts" element={<Posts />} />
         </Route>
+        <Route path="*" element={<DefaultNotFound />} />
       </Routes>
     </div>
   );

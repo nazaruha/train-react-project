@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { TextNode, Props } from './types'; // our interfaces 
+import { TextNode, Props } from '../types'; // our interfaces 
 
 /* 'React.FC' -> tells that variable 'TextField' is a React's Function Component. 
 'FC' (Function Component).
@@ -10,15 +10,15 @@ const TextField: React.FC<Props> = ({
     // i = 100,
 }) => {
     //hooks (declaring types for value)
-        // const [count, setCount] = useState<number | null | undefined | string /* can be number or null or undefined or string type*/>(5); // single pipe '|' is a logical OR in TS. 
-        // setCount(12)
-        // setCount(null)
+    // const [count, setCount] = useState<number | null | undefined | string /* can be number or null or undefined or string type*/>(5); // single pipe '|' is a logical OR in TS. 
+    // setCount(12)
+    // setCount(null)
     //hooks (declaring object)
-        // const [count, setCount] = useState<{text: string}>({text: 'hello'});
-        // setCount({text: 'sdsd'})
+    // const [count, setCount] = useState<{text: string}>({text: 'hello'});
+    // setCount({text: 'sdsd'})
     //hooks (declating interface)
-        const [count, setCount] = useState<TextNode>({text: 'hello'});
-        setCount({text: 'bye'});
+    const [count, setCount] = useState<TextNode>({ text: 'hello' });
+    setCount({ text: 'bye' });
 
     const inputRef = useRef<HTMLInputElement>(null);
     const divRef = useRef<HTMLDivElement>(null);
@@ -27,9 +27,9 @@ const TextField: React.FC<Props> = ({
         <>
             <div ref={divRef}>
                 {/* in the ref object, if we hover it, we can see that we can pass in there string or function or refObject(useRef<HTMLInputElement>(null) object) */}
-                <input 
+                <input
                     ref={inputRef} /* 'ref' will be mad at us if we don't indicate the type of our useRef<...>  */
-                /> 
+                />
                 {/* <span>{i}</span> */}
             </div>
         </>

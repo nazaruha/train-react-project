@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Counters } from './types';
+import { Counters } from '../types';
 
 const MyCounter: React.FC = () => {
     const [counter, setCounter] = useState<Counters>({ _counter: 0, _counter1: 0 });
