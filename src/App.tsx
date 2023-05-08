@@ -14,6 +14,12 @@ import SecondUseEffectMistake from './containers/pages/TutorialUseEffect/useEffe
 import ThirdUseEffectMistake from './containers/pages/TutorialUseEffect/useEffectMistakes/mistake-3';
 import Posts from './containers/pages/TutorialUseEffect/useEffectMistakes/mistake-3/Posts/posts';
 import AxiosTrain from './containers/pages/AXIOS TRAIN';
+import LoginPage from './containers/auth/login';
+import setAuthToken from './containers/helpers/setAuthToken';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 function App() {
   // props
@@ -48,6 +54,8 @@ function App() {
           <Route path="tutorial-useEffect/:third-useEffect-mistake-ApiRequestsWithUseEffect/:posts" element={<Posts />} />
           {/* AXIOS */}
           <Route path="axios-train" element={<AxiosTrain />} />
+          {/* Login / Register */}
+          <Route path="login-page" element={<LoginPage />} />
         </Route>
         <Route path="*" element={<DefaultNotFound />} />
       </Routes>
