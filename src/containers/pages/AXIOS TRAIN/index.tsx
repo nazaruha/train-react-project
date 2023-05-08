@@ -9,7 +9,7 @@ const AxiosTrain: FC = () => {
     const [categories, setCategories] = useState<ICategoryItem[]>();
 
     const viewCategoryList = categories?.map((item) => (
-        <div className="card" key={item.id} style={{ width: '18rem' }}>
+        <div className="card m-3" key={item.id} style={{ width: '18rem' }}>
             <img src={`${APP_ENV.ALLIN_URL}images/150_${item.image}`} className="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">{item.title}</h5>
@@ -20,8 +20,15 @@ const AxiosTrain: FC = () => {
                 <li className="list-group-item">priority: {item.priority}</li>
             </ul>
             <div className="card-body">
-                <a href={`${APP_ENV.ALLIN_URL}api/Categories/get/${item.id}`} target="_blank" className="card-link">Item link</a>
-                <a href={`${APP_ENV.ALLIN_URL}images/150_${item.image}`} target="_blank" className="card-link">Image link</a>
+                <div className='d-flex justify-content-center'>
+                    <a href={`${APP_ENV.ALLIN_URL}api/Categories/get/${item.id}`} target="_blank" className="card-link">Item link</a>
+                    <a href={`${APP_ENV.ALLIN_URL}images/150_${item.image}`} target="_blank" className="card-link">Image link</a>
+                </div>
+                <div className="d-flex justify-content-center mt-3">
+                    <a href="#" className="btn btn-primary w-50">Edit</a>
+                    <a href="#" className="btn btn-warning w-50 ms-1">Update</a>
+                    <a href="#" className="btn btn-danger w-50 ms-1">Delete</a>
+                </div>
             </div>
         </div>
     ))
@@ -49,7 +56,10 @@ const AxiosTrain: FC = () => {
     return (
         <>
             <h1 className="text-center">Axios Train</h1>
-            <div className='row' style={{ gap: 20 }}>
+            <div className='row' style={{}}>
+                <div className='col-12'>
+                    <button className='btn btn-success w-15'>Create Category</button>
+                </div>
                 {viewCategoryList}
             </div>
         </>
