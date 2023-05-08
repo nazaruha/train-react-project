@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { Routes, Route } from 'react-router-dom';
 import TextField from './containers/pages/TextField';
 import { Counters } from './containers/pages/types';
