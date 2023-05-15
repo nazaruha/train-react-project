@@ -74,7 +74,7 @@ const DefaultHeader: FC = () => {
                                         to="tutorial-useRef"
                                         className={classNames(
                                             'nav-link',
-                                            { [`text-${textColor["secondary"]}`]: true },
+                                            { [`text-${textColor["success"]}`]: true },
                                             { ['text-light']: useMatch("tutorial-useRef") } // useMath("[url]") checks if your current url == [url] it will get this style
                                         )}> {/* text-secondary */}
                                         TutorialUseRef
