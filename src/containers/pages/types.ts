@@ -1,7 +1,7 @@
 export interface Person {
     firstName: string;
     lastName: string;
-};
+}
 
 export interface Props {
     text: string; // can be any type of prop
@@ -12,13 +12,13 @@ export interface Props {
         f1: string
     };
     person: Person; // obj with type of another interface above.
-};
+}
 
 export interface TextNode {
     text: string
-};
+}
 
 export interface Counters {
-    _counter?: number;
-    _counter1?: number;
+    _counter: number;
+    _counter1: number;
 }

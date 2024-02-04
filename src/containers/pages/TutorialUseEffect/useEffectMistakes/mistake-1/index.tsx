@@ -12,7 +12,7 @@ const FirstUseEffectMistake: FC = () => {
 
     const user = useMemo(() => ({ // memorise what you need in the state
         name: state.name,
-        selecte: state.selected,
+        selected: state.selected,
     }),
         [state.name, state.selected] // this user will be changed if one of this props is changed. And it won't compiles if our value hasn't changed
     );
@@ -60,14 +60,17 @@ const FirstUseEffectMistake: FC = () => {
                     Add Name
                 </button>
                 <button
-                    className="btn btn-primary"
-                    onClick={() => setState((prev) => ({ ...prev, selected: true }))}
+                    className={classNames([
+                        'btn btn-primary',
+                        {'btn-danger': state.selected}
+                    ])}
+                    onClick={() => setState((prev) => ({ ...prev, selected: !prev.selected }))}
                 >
-                    Select
+                    {state.selected ? 'Unselect' : 'Select'}
                 </button>
                 <span className="text-center mt-3">
                     {`
-                { name:${state.name}, selected:${state.selected} }
+                { name:${user.name}, selected:${user.selected} }
                 `}
                 </span>
 
